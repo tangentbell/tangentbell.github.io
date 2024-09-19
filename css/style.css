@@ -1,0 +1,486 @@
+/*! HTML5 Boilerplate v9.0.1 | MIT License | https://html5boilerplate.com/ */
+
+/* main.css 3.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+body {
+  background-image: url("/img/main/mainbg.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: monospace;
+  text-align: center;
+}
+
+.main-title {
+  text-align: center;
+  color: white;
+  display: inline-block;
+  position: static;
+}
+#socials {
+  display: inline-block;
+  float: right;
+}
+
+/* Style all font awesome icons */
+.fa {
+  padding: 10px;
+  font-size: 30px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  margin:1px
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.7;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-youtube {
+  background: red;
+  color: white;
+}
+
+.fa-steam {
+  background: navy;
+  color: white;
+}
+
+.home-button {
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+#subtitle {
+  text-align: center;
+}
+
+div.content-panel {
+  background: rgba(255,255,255,0.3);
+  border: white solid 1px;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 30px;
+  max-width: 500px;
+  display: inline-grid;
+  vertical-align: top;
+  text-align: left;
+  /*word-wrap: break-word;*/
+}
+div.content-panel h2 {
+  text-align: center;
+  color: white;
+}
+div.content-panel p {
+  color: white;
+}
+
+div.content-panel a img {
+  height: 192px;
+  /*border: gray solid 2px;*/
+  display: inline-block;
+  vertical-align: top;
+}
+
+div.content-panel a img:hover {
+  /*border: hotpink solid 2px;*/
+  -webkit-filter: drop-shadow(1px 1px 0 hotpink)
+  drop-shadow(-1px -1px 0 hotpink);
+  filter: drop-shadow(1px 1px 0 hotpink)
+  drop-shadow(-1px -1px 0 hotpink);
+}
+
+ul.project-entry li {
+  margin-bottom: 10px;
+}
+ul.project-entry li a img:hover {
+  border: hotpink solid 2px;
+}
+
+ul.project-entry {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ul.project-entry li a img {
+  width: 256px;
+  height: 192px;
+  border: transparent solid 2px;
+  display: inline-block;
+  vertical-align: top;
+}
+ul.project-entry li a img:hover {
+  border: hotpink solid 2px;
+}
+ul.project-entry li div {
+  text-align: left;
+  display: inline-block;
+  vertical-align: top;
+  max-width: 220px;
+  /*word-wrap: break-word;*/
+}
+
+ul.manga-entry {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ul.manga-entry li {
+  margin-bottom: 10px;
+}
+ul.manga-entry li a img {
+  width: 135px;
+  height: 192px;
+  border: transparent solid 2px;
+  display: inline-block;
+  vertical-align: top;
+}
+ul.manga-entry li a img:hover {
+  border: hotpink solid 2px;
+}
+ul.manga-entry li div {
+  text-align: left;
+  display: inline-block;
+  vertical-align: top;
+  max-width: 250px;
+  /*word-wrap: break-word;*/
+  ;
+}
+
+div.art-year {
+  background: rgba(255,255,255,0.3);
+  border: white solid 1px;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 30px;
+  min-width: 1500px;
+  max-width: 1500px;
+  display: inline-grid;
+  text-align: left;
+}
+div.art-year h2 {
+  color: white;
+}
+
+.gallery-image {
+  height: 200px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+/* Modal overlay styling */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Ensure it is on top of other content */
+}
+
+/* Modal content styling */
+.modal-content {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+/* Image inside the modal */
+.modal-image {
+  /*max-width: 100%;*/
+  max-height: 700px;
+  border: 2px solid white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#audio-player {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  /*background: rgba(255, 255, 255, 0.4);*/
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+}
+
+audio {
+  width: 100%;
+  max-width: 400px;
+}
+
+.track {
+  text-align: left;
+  display: inline-block;
+  color: white;
+  margin: 10px;
+  background: rgba(255,255,255,0.3);
+  border: white solid 1px;
+  border-radius: 10px;
+  padding: 0 10px;
+}
+
+.play-btn {
+  background-color: transparent;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+  resize: vertical;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden,
+[hidden] {
+  display: none !important;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ */
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  /* 1 */
+}
+
+/*
+ * Extends the .visually-hidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.visually-hidden.focusable:active,
+.visually-hidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  white-space: inherit;
+  width: auto;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+  visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * The use of `table` rather than `block` is only necessary if using
+ * `::before` to contain the top-margins of child elements.
+ */
+
+.clearfix::before,
+.clearfix::after {
+  content: "";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+  /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+  (-webkit-min-device-pixel-ratio: 1.25),
+  (min-resolution: 1.25dppx),
+  (min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   https://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: #fff !important;
+    color: #000 !important;
+    /* Black prints faster */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]::after {
+    content: " (" attr(title) ")";
+  }
+
+  /*
+   * Don't show links that are fragment identifiers,
+   * or use the `javascript:` pseudo protocol
+   */
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after {
+    content: "";
+  }
+
+  pre {
+    white-space: pre-wrap !important;
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+
