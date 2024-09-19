@@ -127,6 +127,11 @@ const tracks = [
         playtime: "01:43"
     },
 ];
+const audioElement = document.getElementById('audio-element');
+function playTrack(trackSrc) {
+    audioElement.src = trackSrc;
+    audioElement.play();
+}
 function generateTracks() {
     let trackList = document.getElementById('track-list');
     if (trackList) {
@@ -134,14 +139,32 @@ function generateTracks() {
             const trackListing = document.createElement('li');
             trackListing.classList.add('track');
             const playButton = document.createElement('button');
+            const playIcon = document.createElement('i');
+            playIcon.classList.add('fa');
+            playIcon.classList.add('fa-play');
             playButton.classList.add('play-btn');
             playButton.setAttribute('data-src', `/snd/music/${track.source}`);
+            playButton.addEventListener('click', () => {
+                const trackSrc = playButton.getAttribute('data-src');
+                if (audioElement.src !== trackSrc) {
+                    playTrack(trackSrc);
+                }
+                else {
+                    if (audioElement.getAttribute('paused')) {
+                        audioElement.play();
+                    }
+                    else {
+                        audioElement.pause();
+                    }
+                }
+            });
+            playButton.appendChild(playIcon);
             trackListing.appendChild(playButton);
             const trackTitle = document.createElement('h3');
-            trackTitle.textContent = `${track.name} (${track.year})`;
+            trackTitle.textContent = track.name;
             trackListing.appendChild(trackTitle);
             const trackLength = document.createElement('p');
-            trackLength.textContent = track.playtime;
+            trackLength.textContent = `(${track.year}) ${track.playtime}`;
             trackListing.appendChild(trackLength);
             trackList.appendChild(trackListing);
         });

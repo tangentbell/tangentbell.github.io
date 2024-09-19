@@ -20,7 +20,6 @@ body {
   text-align: center;
   color: white;
   display: inline-block;
-  position: static;
 }
 #socials {
   display: inline-block;
@@ -237,11 +236,14 @@ audio {
   padding: 0 10px;
 }
 
+.track h3 {
+  display: inline-block;
+}
+
 .play-btn {
   background-color: transparent;
   color: white;
   border: none;
-  padding: 5px 10px;
   cursor: pointer;
   display: inline-block;
 }
