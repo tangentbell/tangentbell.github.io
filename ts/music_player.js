@@ -128,7 +128,9 @@ const tracks = [
     },
 ];
 const audioElement = document.getElementById('audio-element');
-function playTrack(trackSrc) {
+const nowPlayingLabel = document.getElementById('now-playing');
+function playTrack(trackSrc, trackName) {
+    nowPlayingLabel.innerText = `Now Playing: ${trackName}`;
     audioElement.src = trackSrc;
     audioElement.play();
 }
@@ -147,7 +149,7 @@ function generateTracks() {
             playButton.addEventListener('click', () => {
                 const trackSrc = playButton.getAttribute('data-src');
                 if (audioElement.src !== trackSrc) {
-                    playTrack(trackSrc);
+                    playTrack(trackSrc, track.name);
                 }
                 else {
                     if (audioElement.getAttribute('paused')) {
