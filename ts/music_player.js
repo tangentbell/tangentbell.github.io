@@ -73,6 +73,12 @@ const tracks = [
         playtime: "01:12"
     },
     {
+        name: "Game Over",
+        year: "2021",
+        source: "gameover.mp3",
+        playtime: "00:57"
+    },
+    {
         name: "Grudge",
         year: "2022",
         source: "grudge.mp3",
@@ -97,10 +103,22 @@ const tracks = [
         playtime: "01:28"
     },
     {
+        name: "Making Up",
+        year: "2021",
+        source: "makingup.mp3",
+        playtime: "01:56"
+    },
+    {
         name: "My Chrysalis Vertibird",
         year: "2023",
         source: "mychrysalisvertibird.mp3",
         playtime: "02:03"
+    },
+    {
+        name: "Ne no Kuni",
+        year: "2022",
+        source: "nenokuni.mp3",
+        playtime: "02:28"
     },
     {
         name: "Phase 1",
