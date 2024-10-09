@@ -144,6 +144,12 @@ const tracks = [
         source: "seeinglight.mp3",
         playtime: "01:43"
     },
+    {
+        name: "Source",
+        year: "2024",
+        source: "source.mp3",
+        playtime: "03:09"
+    },
 ];
 const audioElement = document.getElementById('audio-element');
 const nowPlayingLabel = document.getElementById('now-playing');
