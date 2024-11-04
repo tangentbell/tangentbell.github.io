@@ -6,7 +6,7 @@ interface ImageSet {
 const art: ImageSet[] = [
   {
     year: "2024",
-    images: ["pagelogo.png", "source.png"]
+    images: ["kaitohalloween.png", "pagelogo.png", "source.png"]
   },
   {
     year: "2023",
