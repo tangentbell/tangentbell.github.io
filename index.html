@@ -24,7 +24,10 @@
 </head>
 
 <body>
-  <div>
+<div id="loading-screen">
+  <div class="spinner"></div>
+</div>
+<div>
     <h1 class='main-title'>Tangent World! (under construction)</h1>
     <div id="socials">
 <!--      <a href="https://x.com/tangentbell" class="twitter" target="_blank" rel="noopener noreferrer">-->
@@ -116,6 +119,15 @@
 <!--      </div>-->
 <!--    </div>-->
   </div>
+  <script>
+    window.addEventListener('load', function () {
+      const loadingScreen = document.getElementById('loading-screen');
+      loadingScreen.style.opacity = '0';
+      setTimeout(() => {
+        loadingScreen.style.display = 'none';
+      }, 500); // Matches the CSS transition duration
+    });
+  </script>
   <script type="module" src="ts/app.js"></script>
 </body>
 

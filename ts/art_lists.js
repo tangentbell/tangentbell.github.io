@@ -56,6 +56,19 @@ function generateGallery() {
             galleryDiv.appendChild(yearSection);
         });
     }
+    const images = document.querySelectorAll('img');
+    const imagePromises = Array.from(images).map(img => {
+        return new Promise(resolve => {
+            if (img.complete) {
+                // If image is already loaded
+            }
+            else {
+                img.onload = resolve; // Resolve once the image is loaded
+                img.onerror = resolve; // Resolve even if there’s an error (optional)
+            }
+        });
+    });
+    return Promise.all(imagePromises); // Wait for all images to load
 }
 function showImageModal(imageSrc) {
     // Create modal background
@@ -78,4 +91,12 @@ function showImageModal(imageSrc) {
         }
     });
 }
-window.onload = generateGallery;
+window.addEventListener('load', function () {
+    generateGallery().then(() => {
+        const loadingScreen = document.getElementById('loading-screen');
+        loadingScreen.style.opacity = '0';
+        setTimeout(() => {
+            loadingScreen.style.display = 'none';
+        }, 500); // Matches the CSS transition duration
+    });
+});

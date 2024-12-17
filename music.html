@@ -7,6 +7,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+  <div id="loading-screen">
+    <div class="spinner"></div>
+  </div>
   <h1 class="main-title">Music</h1>
   <div style="text-align: left">
     <a class="home-button" href="index.html">Home</a>
@@ -20,7 +23,15 @@
       <audio id="audio-element" controls></audio>
     </div>
   </div>
-
+  <script>
+    window.addEventListener('load', function () {
+      const loadingScreen = document.getElementById('loading-screen');
+      loadingScreen.style.opacity = '0';
+      setTimeout(() => {
+        loadingScreen.style.display = 'none';
+      }, 500); // Matches the CSS transition duration
+    });
+  </script>
   <script type="module" src="/ts/music_player.js"></script>
 </body>
 </html>
