@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 const getUsers = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const response = yield fetch('https://tangentbackend.fly.dev', {
+        const response = yield fetch('https://tangentbackend.fly.dev/WeatherForecast', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

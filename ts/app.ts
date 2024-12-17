@@ -1,6 +1,6 @@
 const getUsers = async () => {
   try {
-    const response = await fetch('https://tangentbackend.fly.dev', {
+    const response = await fetch('https://tangentbackend.fly.dev/WeatherForecast', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
