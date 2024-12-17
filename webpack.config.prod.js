@@ -9,6 +9,9 @@ module.exports = merge(common, {
     new HtmlWebpackPlugin({
       template: './index.html',
     }),
+    new HtmlWebpackPlugin({
+      'process.env.BACKEND_URL': JSON.stringify('https://tangentbackend.fly.dev')
+    }),
     new CopyPlugin({
       patterns: [
         { from: 'img', to: 'img' },
