@@ -22,7 +22,7 @@
 
 async function fetchData(endpoint: string) {
   // const response = await fetch(`${BACKEND_URL}/${endpoint}`);
-  const response = await fetch(`http://localhost:5066/${endpoint}`);
+  const response = await fetch(`https://tangentbackend.fly.dev/${endpoint}`);
   if (!response.ok) {
     throw new Error(`Error fetching data from ${endpoint}: ${response.statusText}`);
   }

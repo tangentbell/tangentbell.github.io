@@ -31,7 +31,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 function fetchData(endpoint) {
     return __awaiter(this, void 0, void 0, function* () {
         // const response = await fetch(`${BACKEND_URL}/${endpoint}`);
-        const response = yield fetch(`http://localhost:5066/${endpoint}`);
+        const response = yield fetch(`https://tangentbackend.fly.dev/${endpoint}`);
         if (!response.ok) {
             throw new Error(`Error fetching data from ${endpoint}: ${response.statusText}`);
         }
