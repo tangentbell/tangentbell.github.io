@@ -60,7 +60,7 @@ function generateGallery() {
     const imagePromises = Array.from(images).map(img => {
         return new Promise(resolve => {
             if (img.complete) {
-                // If image is already loaded
+                resolve("Image already loaded"); // If image is already loaded
             }
             else {
                 img.onload = resolve; // Resolve once the image is loaded
