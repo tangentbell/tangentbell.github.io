@@ -216,7 +216,7 @@ function generateTracks() {
 }
 function fetchTracks() {
     return __awaiter(this, void 0, void 0, function* () {
-        const response = yield fetch(`http://localhost:5066/api/Music`);
+        const response = yield fetch(`https://tangentbackend.fly.dev/api/Music`);
         if (!response.ok) {
             throw new Error(`Error fetching data from Music`);
         }
