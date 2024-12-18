@@ -23,15 +23,6 @@
       <audio id="audio-element" controls></audio>
     </div>
   </div>
-  <script>
-    window.addEventListener('load', function () {
-      const loadingScreen = document.getElementById('loading-screen');
-      loadingScreen.style.opacity = '0';
-      setTimeout(() => {
-        loadingScreen.style.display = 'none';
-      }, 500); // Matches the CSS transition duration
-    });
-  </script>
   <script type="module" src="/ts/music_player.js"></script>
 </body>
 </html>
