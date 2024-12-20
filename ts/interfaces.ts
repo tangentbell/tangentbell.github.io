@@ -2,6 +2,6 @@ export interface Music {
   id: number
   name: string
   year: number
-  source: string
+  s3_Key: string
   playtime: string
 }

@@ -187,7 +187,8 @@ function generateTracks() {
             playIcon.classList.add('fa');
             playIcon.classList.add('fa-play');
             playButton.classList.add('play-btn');
-            playButton.setAttribute('data-src', `/snd/music/${track.source}`);
+            console.log(track.s3_Key);
+            playButton.setAttribute('data-src', `${track.s3_Key}`);
             playButton.addEventListener('click', () => {
                 const trackSrc = playButton.getAttribute('data-src');
                 if (audioElement.src !== trackSrc) {
@@ -216,6 +217,7 @@ function generateTracks() {
 }
 function fetchTracks() {
     return __awaiter(this, void 0, void 0, function* () {
+        // const response = await fetch(`http://localhost:5066/api/Music`);
         const response = yield fetch(`https://tangentbackend.fly.dev/api/Music`);
         if (!response.ok) {
             throw new Error(`Error fetching data from Music`);
