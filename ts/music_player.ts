@@ -193,7 +193,6 @@ function generateTracks() {
       playIcon.classList.add('fa');
       playIcon.classList.add('fa-play');
       playButton.classList.add('play-btn');
-      console.log(track.s3_Key);
       playButton.setAttribute('data-src', `${track.s3_Key}`);
       playButton.addEventListener('click', () => {
         const trackSrc = playButton.getAttribute('data-src');

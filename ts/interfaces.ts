@@ -5,3 +5,9 @@ export interface Music {
   s3_Key: string
   playtime: string
 }
+
+export interface Art {
+  id: number
+  year: number
+  s3_Key: string
+}

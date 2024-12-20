@@ -1,4 +1,12 @@
-"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 const art = [
     {
         year: "2024",
@@ -30,30 +38,52 @@ const art = [
         images: ["freemo.png", "darn.png", "freem.png", "betasuit.png", "theboys.png"]
     },
 ];
+let pics;
+fetchArt().then((data) => {
+    pics = data;
+    pics.sort((a, b) => b.year - a.year);
+}).then(generateGallery).then(() => {
+    const loadingScreen = document.getElementById('loading-screen');
+    loadingScreen.style.opacity = '0';
+    setTimeout(() => {
+        loadingScreen.style.display = 'none';
+    }, 500);
+});
 function generateGallery() {
     const galleryDiv = document.getElementById('art-panels');
     if (galleryDiv) {
-        art.forEach((yearData) => {
-            // Create a section for the year
-            const yearSection = document.createElement('div');
-            yearSection.classList.add('art-year');
-            const yearTitle = document.createElement('h2');
-            yearTitle.textContent = yearData.year;
-            yearSection.appendChild(yearTitle);
-            // Create image container
-            const imageContainer = document.createElement('div');
-            imageContainer.classList.add('image-container');
-            // Add images
-            yearData.images.forEach((image) => {
-                const imgElement = document.createElement('img');
-                imgElement.src = `/img/art/${yearData.year}/${image}`;
-                imgElement.alt = `${yearData.year} - ${image}`;
-                imgElement.classList.add('gallery-image');
-                imgElement.addEventListener('click', () => showImageModal(`/img/art/${yearData.year}/${image}`));
-                imageContainer.appendChild(imgElement);
-            });
+        let currentYear = 0;
+        pics.forEach((pic) => {
+            let newYear = pic.year;
+            let yearSection;
+            let imageContainer;
+            if (newYear !== currentYear) {
+                // Create a section for the year
+                yearSection = document.createElement('div');
+                yearSection.id = `section-${pic.year.toString()}`;
+                yearSection.classList.add('art-year');
+                const yearTitle = document.createElement('h2');
+                yearTitle.textContent = pic.year.toString();
+                yearSection.appendChild(yearTitle);
+                imageContainer = document.createElement('div');
+                imageContainer.classList.add('image-container');
+                imageContainer.id = `container-${pic.year.toString()}`;
+            }
+            else {
+                yearSection = document.getElementById(`section-${pic.year.toString()}`);
+                imageContainer = document.getElementById(`container-${pic.year.toString()}`);
+            }
+            const imgElement = document.createElement('img');
+            imgElement.src = pic.s3_Key;
+            imgElement.alt = '';
+            imgElement.classList.add('gallery-image');
+            imgElement.addEventListener('click', () => showImageModal(pic.s3_Key));
+            imageContainer.appendChild(imgElement);
             yearSection.appendChild(imageContainer);
-            galleryDiv.appendChild(yearSection);
+            if (newYear !== currentYear) {
+                galleryDiv.appendChild(yearSection);
+                currentYear = newYear;
+            }
         });
     }
     const images = document.querySelectorAll('img');
@@ -91,12 +121,14 @@ function showImageModal(imageSrc) {
         }
     });
 }
-window.addEventListener('load', function () {
-    generateGallery().then(() => {
-        const loadingScreen = document.getElementById('loading-screen');
-        loadingScreen.style.opacity = '0';
-        setTimeout(() => {
-            loadingScreen.style.display = 'none';
-        }, 500); // Matches the CSS transition duration
+function fetchArt() {
+    return __awaiter(this, void 0, void 0, function* () {
+        // const response = await fetch(`http://localhost:5066/api/Art`);
+        const response = yield fetch(`https://tangentbackend.fly.dev/api/Art`);
+        if (!response.ok) {
+            throw new Error(`Error fetching data from Music`);
+        }
+        return response.json();
     });
-});
+}
+export {};

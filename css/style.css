@@ -186,6 +186,10 @@ div.art-year h2 {
   color: white;
 }
 
+.image-container {
+  display: inline-block;
+}
+
 .gallery-image {
   height: 200px;
   margin: 10px;
