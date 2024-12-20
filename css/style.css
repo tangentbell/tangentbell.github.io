@@ -76,9 +76,6 @@ div.content-panel {
   margin: 30px;
   max-width: 500px;
   max-height: 80vh;
-  overflow: auto;
-  scrollbar-width: thin;
-  scrollbar-color: white transparent;
   display: inline-grid;
   vertical-align: top;
   text-align: left;
@@ -107,6 +104,8 @@ div.content-panel a img:hover {
   drop-shadow(-1px -1px 0 hotpink);
 }
 
+
+
 ul.project-entry li {
   margin-bottom: 10px;
 }
@@ -115,6 +114,10 @@ ul.project-entry li a img:hover {
 }
 
 ul.project-entry {
+  max-height: 70vh;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: white transparent;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -138,6 +141,10 @@ ul.project-entry li div {
 }
 
 ul.manga-entry {
+  max-height: 70vh;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: white transparent;
   list-style: none;
   padding: 0;
   margin: 0;

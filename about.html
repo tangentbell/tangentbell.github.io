@@ -2,9 +2,43 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>About - Tangent World</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <div id="loading-screen">
+    <div class="spinner"></div>
+  </div>
+  <h1 class="main-title">About Me</h1>
+  <div style="text-align: left">
+    <a class="home-button" href="index.html">Home</a>
+  </div>
 
+  <div id="about-container" style="max-width: 70vw; margin: 0 auto">
+    <p style="color: white; font-size: xx-large; text-shadow: black 3px 3px">
+      Hi! I go by tangent(bell) online and I’m currently a student of computer science. Despite my kind of boring career
+      path, I've long been an artist and musician and I love creating things. It's been my wish since I was a little
+      kid to make my own games, cartoons, comics... really just anything that could express the mess of ideas in my head.
+      Until recently that all felt like a pipe dream. I've never been that talented at anything, and I'm still not; I've
+      kind of spread my interests too thin and thus while I'm adequate at many different things, I'm not particularly
+      skilled in any one area. Still, I've found myself in a position where I can actually materialize my ideas, and
+      I couldn't be more excited to share them with the world!<br><br>
+      Anyway, here's the obligatory list of my favorite things: my favorite food is green grapes, my favorite color is
+      teal, my favorite game is Fallout 2, my favorite band is Depeche Mode, my favorite manga is Dorohedoro, and my
+      biggest artistic inspiration is Teppei Fukushima.<br><br>
+      I'm always happy to make new friends, so if you want to talk about video games, languages, manga or whatever, my
+      Discord handle is @tangentbell.
+    </p>
+  </div>
+
+  <script>
+    window.addEventListener('load', function () {
+      const loadingScreen = document.getElementById('loading-screen');
+      loadingScreen.style.opacity = '0';
+      setTimeout(() => {
+        loadingScreen.style.display = 'none';
+      }, 500); // Matches the CSS transition duration
+    });
+  </script>
 </body>
 </html>
