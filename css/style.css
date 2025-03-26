@@ -23,8 +23,8 @@ body {
   display: inline-block;
 }
 #socials {
-  display: inline-block;
-  float: right;
+  /*display: inline-block;*/
+  text-align: right;
 }
 
 /* Style all font awesome icons */
@@ -53,8 +53,8 @@ body {
   color: white;
 }
 
-.fa-steam {
-  background: navy;
+.fa-tumblr {
+  background: midnightblue;
   color: white;
 }
 
@@ -85,9 +85,17 @@ div.content-panel {
 }
 div.content-panel h2 {
   text-align: center;
-  color: white;
-  text-shadow: 3px 3px rgba(30,10,30,0.5);
+  background: linear-gradient(0deg, rgba(103,103,103,1) 0%, rgba(255,255,255,1) 100%);
+  border-radius: 5px;
+  color: rebeccapurple;
+  box-shadow: 3px 3px rgba(30,10,30,0.5);
+  /*text-shadow: 3px 3px rgba(30,10,30,0.5);*/
 }
+
+div.content-panel a h2:hover {
+  color: mediumpurple;
+}
+
 div.content-panel p {
   color: white;
 }
