@@ -69,8 +69,9 @@ body {
 }
 
 div.content-panel {
-  background: rgba(255,255,255,0.3);
-  border: white solid 1px;
+  background: rgba(255,170,255,0.2);
+  box-shadow: 5px 5px rgba(30,10,30,0.5) inset;
+  border: white solid 2px;
   border-radius: 10px;
   padding: 10px;
   margin: 30px;
@@ -84,6 +85,7 @@ div.content-panel {
 div.content-panel h2 {
   text-align: center;
   color: white;
+  text-shadow: 3px 3px rgba(30,10,30,0.5);
 }
 div.content-panel p {
   color: white;
@@ -172,7 +174,9 @@ ul.manga-entry li div {
 }
 
 div.art-year {
-  background: rgba(255,255,255,0.3);
+  /*background: rgba(255,255,255,0.3);*/
+  background: rgba(255,170,255,0.2);
+  box-shadow: 5px 5px rgba(30,10,30,0.5) inset;
   border: white solid 1px;
   border-radius: 10px;
   padding: 10px;
@@ -184,6 +188,7 @@ div.art-year {
 }
 div.art-year h2 {
   color: white;
+  text-shadow: 3px 3px rgba(30,10,30,0.5);
 }
 
 .image-container {
@@ -246,7 +251,8 @@ audio {
   display: inline-block;
   color: white;
   margin: 10px;
-  background: rgba(255,255,255,0.3);
+  background: rgba(255,170,255,0.2);
+  box-shadow: 4px 4px rgba(30,10,30,0.5) inset;
   border: white solid 1px;
   border-radius: 10px;
   padding: 0 10px;
@@ -254,6 +260,7 @@ audio {
 
 .track h3 {
   display: inline-block;
+  text-shadow: 3px 3px rgba(30,10,30,0.5);
 }
 
 .play-btn {
