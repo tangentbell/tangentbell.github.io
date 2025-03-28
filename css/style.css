@@ -60,11 +60,17 @@ body {
 
 .home-button {
   text-decoration: none;
-  color: black;
-  background-color: white;
+  background: linear-gradient(0deg, rgba(103,103,103,1) 0%, rgba(255,255,255,1) 100%);
+  color: rebeccapurple;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 10px;
+  font-size: x-large;
 }
+
+.home-button:hover {
+  color: mediumpurple;
+}
+
 #subtitle {
   text-align: center;
 }
@@ -107,21 +113,18 @@ div.content-panel a img {
   vertical-align: top;
 }
 
-div.content-panel a img:hover {
+div.content-panel a img.transparent:hover {
   /*border: hotpink solid 2px;*/
-  -webkit-filter: drop-shadow(1px 1px 0 hotpink)
-  drop-shadow(-1px -1px 0 hotpink);
-  filter: drop-shadow(1px 1px 0 hotpink)
-  drop-shadow(-1px -1px 0 hotpink);
+  /*-webkit-filter: drop-shadow(2px 2px 0 hotpink)*/
+  /*drop-shadow(-2px -2px 0 hotpink);*/
+  filter: drop-shadow(2px 2px 0 hotpink)
+  drop-shadow(-2px -2px 0 hotpink);
 }
 
 
 
 ul.project-entry li {
   margin-bottom: 10px;
-}
-ul.project-entry li a img:hover {
-  border: hotpink solid 2px;
 }
 
 ul.project-entry {
@@ -136,12 +139,12 @@ ul.project-entry {
 ul.project-entry li a img {
   width: 256px;
   height: 192px;
-  border: transparent solid 2px;
+  border: transparent solid 3px;
   display: inline-block;
   vertical-align: top;
 }
 ul.project-entry li a img:hover {
-  border: hotpink solid 2px;
+  border: hotpink solid 3px;
 }
 ul.project-entry li div {
   text-align: left;
@@ -166,12 +169,12 @@ ul.manga-entry li {
 ul.manga-entry li a img {
   width: 135px;
   height: 192px;
-  border: transparent solid 2px;
+  border: transparent solid 3px;
   display: inline-block;
   vertical-align: top;
 }
 ul.manga-entry li a img:hover {
-  border: hotpink solid 2px;
+  border: hotpink solid 3px;
 }
 ul.manga-entry li div {
   text-align: left;
