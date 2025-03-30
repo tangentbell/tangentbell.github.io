@@ -65,6 +65,7 @@ body {
   padding: 10px;
   border-radius: 10px;
   font-size: x-large;
+  transition: 0.3s;
 }
 
 .home-button:hover {
@@ -83,7 +84,7 @@ div.content-panel {
   border-radius: 10px;
   padding: 10px;
   margin: 30px;
-  max-width: 500px;
+  max-width: 600px;
   max-height: 80vh;
   display: inline-grid;
   vertical-align: top;
@@ -117,6 +118,10 @@ div.content-panel a img {
   transition: 0.3s;
 }
 
+div.content-panel a img.transparent {
+  height: 145px;
+}
+
 div.content-panel a img.transparent:hover {
   /*border: hotpink solid 2px;*/
   /*-webkit-filter: drop-shadow(2px 2px 0 hotpink)*/
@@ -124,6 +129,7 @@ div.content-panel a img.transparent:hover {
   filter: drop-shadow(2px 2px 0 hotpink)
     drop-shadow(-2px -2px 0 hotpink)
     brightness(80%) blur(1px);
+  height: 150px;
 }
 
 
@@ -147,10 +153,14 @@ ul.project-entry li a img {
   border: transparent solid 3px;
   display: inline-block;
   vertical-align: top;
+  transition: 0.3s;
 }
+
 ul.project-entry li a img:hover {
   border: hotpink solid 3px;
   filter: brightness(80%) blur(1px);
+  width: 264px;
+  height: 198px;
 }
 
 ul.project-entry li div {
@@ -183,6 +193,8 @@ ul.manga-entry li a img {
 ul.manga-entry li a img:hover {
   border: hotpink solid 3px;
   filter: brightness(80%) blur(1px);
+  width: 139px;
+  height: 198px;
 }
 
 ul.manga-entry li div {
