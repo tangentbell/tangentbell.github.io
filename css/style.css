@@ -91,7 +91,16 @@ div.content-panel {
   text-align: left;
   /*word-wrap: break-word;*/
 }
-div.content-panel h2 {
+div.content-panel h2.clickable {
+  text-align: center;
+  background: linear-gradient(0deg, rgba(103,103,103,1) 0%, rgba(255,255,255,1) 100%);
+  border-radius: 5px;
+  color: rebeccapurple;
+  box-shadow: 3px 3px rgba(30,10,30,0.5);
+  transition: 0.3s;
+  /*text-shadow: 3px 3px rgba(30,10,30,0.5);*/
+}
+div.content-panel h2.nonclick {
   text-align: center;
   background: linear-gradient(0deg, rgba(103,103,103,1) 0%, rgba(255,255,255,1) 100%);
   border-radius: 5px;
@@ -310,6 +319,73 @@ audio {
   border: none;
   cursor: pointer;
   display: inline-block;
+}
+
+#detailed-blog {
+  float: right;
+  width: 60%;
+}
+
+#detailed-blog h2 {
+  text-align: center;
+  color: white;
+}
+
+#blog-panel p {
+  color: white;
+  text-align: left;
+  font-size: larger;
+  padding: 10px;
+}
+
+#blog-panel {
+  float: right;
+  margin: 30px;
+  padding: 10px;
+  background: rgba(255,170,255,0.2);
+  box-shadow: 5px 5px rgba(30,10,30,0.5) inset;
+  border: white solid 2px;
+  border-radius: 10px;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: white transparent;
+  height: 75vh;
+  width: 100%;
+
+}
+
+#blog-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 75vh;
+}
+
+#blog-list li {
+  padding: 5px;
+  outline: white solid 1px;
+  border-radius: 5px;
+}
+
+#blog-list li:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+#blog-list li h2 {
+  text-align: left;
+  color: white;
+  display: inline-block;
+}
+
+#blog-list li h3 {
+  text-align: center;
+  color: white;
+  display: inline-block;
+  margin-left: 20px;
+}
+
+div.blog {
+
 }
 
 /* Loading screen styles */

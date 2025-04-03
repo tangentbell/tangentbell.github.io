@@ -11,3 +11,11 @@ export interface Art {
   year: number
   s3_Key: string
 }
+
+export interface Blog {
+  id: number
+  published: string
+  description: string
+  title: string
+  s3_Key: string
+}
