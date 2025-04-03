@@ -21,6 +21,7 @@ body {
   text-align: center;
   color: white;
   display: inline-block;
+  margin-bottom: 0;
 }
 #socials {
   /*display: inline-block;*/
