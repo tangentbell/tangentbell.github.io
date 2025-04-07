@@ -24,7 +24,7 @@ async function generateBlogs() {
       fetch(blog.s3_Key)
         .then(res => res.text())
         .then(html => {
-          blog_panel.innerHTML = html;
+          blog_panel.innerHTML = `<h2>${blog.title}</h2>`+html;
         }).then(() => {
         const loadingScreen = document.getElementById('loading-screen');
         loadingScreen!.style.opacity = '0';
