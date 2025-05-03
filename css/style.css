@@ -142,7 +142,13 @@ div.content-panel a img.transparent:hover {
   height: 150px;
 }
 
+#project-panel {
+  transition: 0.3s;
+}
 
+#misc-panels {
+  transition: 0.3s;
+}
 
 ul.project-entry li {
   margin-bottom: 10px;
@@ -181,7 +187,7 @@ ul.project-entry li div {
   /*word-wrap: break-word;*/
 }
 
-ul.manga-entry {
+ul.manga-entries {
   max-height: 70vh;
   overflow: auto;
   scrollbar-width: thin;
@@ -190,24 +196,24 @@ ul.manga-entry {
   padding: 0;
   margin: 0;
 }
-ul.manga-entry li {
+ul.manga-entries li {
   margin-bottom: 10px;
 }
-ul.manga-entry li a img {
+ul.manga-entries li a img {
   width: 135px;
   height: 192px;
   border: transparent solid 3px;
   display: inline-block;
   vertical-align: top;
 }
-ul.manga-entry li a img:hover {
+ul.manga-entries li a img:hover {
   border: hotpink solid 3px;
   filter: brightness(80%) blur(1px);
   width: 139px;
   height: 198px;
 }
 
-ul.manga-entry li div {
+ul.manga-entries li div {
   text-align: left;
   display: inline-block;
   vertical-align: top;
