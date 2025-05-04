@@ -140,6 +140,7 @@ div.content-panel a img.transparent:hover {
     drop-shadow(-2px -2px 0 hotpink)
     brightness(80%) blur(1px);
   height: 150px;
+  transform: skew(-2deg, 2deg);
 }
 
 #project-panel {
@@ -177,6 +178,7 @@ ul.project-entry li a img:hover {
   filter: brightness(80%) blur(1px);
   width: 264px;
   height: 198px;
+  transform: skew(-1deg, 1deg);
 }
 
 ul.project-entry li div {
@@ -211,6 +213,7 @@ ul.manga-entries li a img:hover {
   filter: brightness(80%) blur(1px);
   width: 139px;
   height: 198px;
+  transform: skew(-2deg, 2deg);
 }
 
 ul.manga-entries li div {
@@ -255,6 +258,7 @@ div.art-year h2 {
 .gallery-image:hover {
   height: 205px;
   outline: hotpink 3px solid;
+  transform: skew(-1deg, 1deg);
 }
 
 
