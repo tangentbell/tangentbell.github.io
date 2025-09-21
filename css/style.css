@@ -156,7 +156,7 @@ ul.project-entry li {
 }
 
 ul.project-entry {
-  max-height: 70vh;
+  max-height: 75vh;
   overflow: auto;
   scrollbar-width: thin;
   scrollbar-color: white transparent;

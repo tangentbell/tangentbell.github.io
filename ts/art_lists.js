@@ -74,10 +74,10 @@ function generateGallery() {
                 imageContainer = document.getElementById(`container-${pic.year.toString()}`);
             }
             const imgElement = document.createElement('img');
-            imgElement.src = pic.s3_Key;
+            imgElement.src = pic.thumb_Key;
             imgElement.alt = '';
             imgElement.classList.add('gallery-image');
-            imgElement.addEventListener('click', () => showImageModal(pic.s3_Key));
+            imgElement.addEventListener('click', () => showImageModal(pic.full_Key));
             imageContainer.appendChild(imgElement);
             yearSection.appendChild(imageContainer);
             if (newYear !== currentYear) {
@@ -126,7 +126,7 @@ function fetchArt() {
         // const response = await fetch(`http://localhost:5066/api/Art`);
         const response = yield fetch(`https://tangentbackend.fly.dev/api/Art`);
         if (!response.ok) {
-            throw new Error(`Error fetching data from Music`);
+            throw new Error(`Error fetching data from Art`);
         }
         return response.json();
     });

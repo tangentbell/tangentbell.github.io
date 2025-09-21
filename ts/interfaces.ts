@@ -10,6 +10,8 @@ export interface Art {
   id: number
   year: number
   s3_Key: string
+  full_Key: string
+  thumb_Key: string
 }
 
 export interface Blog {
