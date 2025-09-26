@@ -5,38 +5,6 @@ interface ImageSet {
   images: string[];
 }
 
-// const art: ImageSet[] = [
-//   {
-//     year: "2024",
-//     images: ["kaitohalloween.png", "pagelogo.png", "source.png"]
-//   },
-//   {
-//     year: "2023",
-//     images: ["boss.png", "kaito.png", "stseqlink.png", "mbison.png", "mobilepowerarmor.png"]
-//   },
-//   {
-//     year: "2022",
-//     images: ["majora.png", "gril.png", "yaoi.png", "hoodie.png", "beats.png", "antipathpromo2.png", "antipathpromo.png"]
-//   },
-//   {
-//     year: "2021",
-//     images: ["tangentbell.jpg", "skirt.png", "smtfg1.jpg", "newface.jpg"]
-//   },
-//   {
-//     year: "2020",
-//     images: ["thechazz.jpg", "finn.jpg", "yugimean.jpg", "yamcgha.jpg", "tbot.png", "lilguy.png", "getup.png"]
-//   },
-//   {
-//     year: "2019",
-//     images: ["xbox.jpg", "run.png", "prospero.png", "chad.png", "fallpakik.png", "eyes.png", "forearm.png", "sigh.png",
-//             "jell.jpg", "thefloaters.png", "huh3.png"]
-//   },
-//   {
-//     year: "2018",
-//     images: ["freemo.png", "darn.png", "freem.png", "betasuit.png", "theboys.png"]
-//   },
-// ];
-
 let pics: Art[];
 fetchArt().then((data: Art[]) => {
   pics = data;
