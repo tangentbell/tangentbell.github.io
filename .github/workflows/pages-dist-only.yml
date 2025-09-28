@@ -1,0 +1,108 @@
+name: Build & Deploy (dist-only)
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+env:
+  # Comma-separated list of sub-apps to build and publish (path -> url path).
+  # Left side: local app folder; Right side: where it should live on the site.
+  # Example: "reader:reader" means copy reader/dist/* -> out/reader/*
+  DIST_MAP: |
+    reader:reader
+  # If you have another app later: add a new line, e.g.
+  #   admin:admin
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      # --- Build each sub-app listed in DIST_MAP ---
+      - name: Install & Build sub-apps
+        run: |
+          set -euo pipefail
+          while IFS= read -r line; do
+            [ -z "$line" ] && continue
+            APP_DIR="${line%%:*}"
+            TARGET_PATH="${line##*:}"
+            echo "::group::Build $APP_DIR -> $TARGET_PATH"
+            cd "$APP_DIR"
+            npm ci
+            npm run build
+            cd - > /dev/null
+            echo "::endgroup::"
+          done <<< "${DIST_MAP}"
+
+      # --- Stage the deployment folder (out/) ---
+      - name: Prepare out/ (dist-only)
+        run: |
+          set -euo pipefail
+          rm -rf out
+          mkdir -p out
+
+          # Copy each dist/ to its target path
+          while IFS= read -r line; do
+            [ -z "$line" ] && continue
+            APP_DIR="${line%%:*}"
+            TARGET_PATH="${line##*:}"
+            mkdir -p "out/${TARGET_PATH}"
+            rsync -a "${APP_DIR}/dist/" "out/${TARGET_PATH}/"
+          done <<< "${DIST_MAP}"
+
+          # OPTIONAL: include selected static files from repo root.
+          # Keep this tight so you don't publish sources.
+          # Uncomment and tailor as needed:
+          #
+          # rsync -a \
+          #   --include="index.html" \
+          #   --include="favicon.ico" \
+          #   --include="css/***" \
+          #   --include="img/***" \
+          #   --exclude="*" \
+          #   ./ out/
+          #
+          # If you use a custom domain:
+          # [ -f CNAME ] && cp CNAME out/CNAME
+
+          # SPA fallback for each app (HashRouter avoids most 404s; this is extra-safe)
+          # If your app uses client-side routing, copy index.html to 404.html:
+          for d in out/*; do
+            if [ -d "$d" ] && [ -f "$d/index.html" ]; then
+              cp "$d/index.html" "$d/404.html"
+            fi
+          done
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
