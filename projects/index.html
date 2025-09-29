@@ -16,5 +16,15 @@
     <a class="home-button" href="/">Home</a>
   </div>
   <h1 class="main-title">Original Projects</h1>
+
+<script>
+    window.addEventListener('load', function () {
+      const loadingScreen = document.getElementById('loading-screen');
+      loadingScreen.style.opacity = '0';
+      setTimeout(() => {
+        loadingScreen.style.display = 'none';
+      }, 500); // Matches the CSS transition duration
+    });
+  </script>
 </body>
 </html>
