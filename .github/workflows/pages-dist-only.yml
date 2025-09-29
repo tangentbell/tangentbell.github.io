@@ -1,8 +1,8 @@
-name: Build & Deploy (dist-only)
+name: Build & Deploy (dist-only + selected root)
 
 on:
   push:
-    branches: ["main"]
+    branches: [ "main" ]
   workflow_dispatch:
 
 permissions:
@@ -15,13 +15,10 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  # Comma-separated list of sub-apps to build and publish (path -> url path).
-  # Left side: local app folder; Right side: where it should live on the site.
-  # Example: "reader:reader" means copy reader/dist/* -> out/reader/*
+  # Map sub-app folders to site paths (left: app dir, right: URL path)
+  # Example includes a single Vite app living at /reader/
   DIST_MAP: |
     reader:reader
-  # If you have another app later: add a new line, e.g.
-  #   admin:admin
 
 jobs:
   build:
@@ -53,7 +50,7 @@ jobs:
           done <<< "${DIST_MAP}"
 
       # --- Stage the deployment folder (out/) ---
-      - name: Prepare out/ (dist-only)
+      - name: Prepare out/ (dist + selected root folders)
         run: |
           set -euo pipefail
           rm -rf out
@@ -68,26 +65,25 @@ jobs:
             rsync -a "${APP_DIR}/dist/" "out/${TARGET_PATH}/"
           done <<< "${DIST_MAP}"
 
-          # OPTIONAL: include selected static files from repo root.
-          # Keep this tight so you don't publish sources.
-          # Uncomment and tailor as needed:
+          # --- Include your chosen root files/folders (nothing else) ---
+          # The *** pattern ensures rsync recurses properly for dirs.
+          rsync -a \
+            --include="index.html" \
+            --include="favicon.*" \
+            --include="img/***" \
+            --include="css/***" \
+            --include="ts/***" \
+            --include="music/***" \
+            --include="art/***" \
+            --include="blogs/***" \
+            --include="about/***" \
+            --exclude="*" \
+            ./ out/
 
-         rsync -a \
-           --include="index.html" \
-           --include="favicon.ico" \
-           --include="music/***" \
-           --include="art/***" \
-           --include="blogs/***" \
-           --include="css/***" \
-           --include="img/***" \
-           --exclude="*" \
-           ./ out/
+          # If you use a custom domain, include CNAME (uncomment if present):
+          if [ -f CNAME ]; then cp CNAME out/CNAME; fi
 
-          # If you use a custom domain:
-          # [ -f CNAME ] && cp CNAME out/CNAME
-
-          # SPA fallback for each app (HashRouter avoids most 404s; this is extra-safe)
-          # If your app uses client-side routing, copy index.html to 404.html:
+          # SPA fallback for each sub-app path (optional but handy)
           for d in out/*; do
             if [ -d "$d" ] && [ -f "$d/index.html" ]; then
               cp "$d/index.html" "$d/404.html"
