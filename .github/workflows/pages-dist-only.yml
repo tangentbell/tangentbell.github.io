@@ -71,15 +71,15 @@ jobs:
           # OPTIONAL: include selected static files from repo root.
           # Keep this tight so you don't publish sources.
           # Uncomment and tailor as needed:
-          #
-          # rsync -a \
-          #   --include="index.html" \
-          #   --include="favicon.ico" \
-          #   --include="css/***" \
-          #   --include="img/***" \
-          #   --exclude="*" \
-          #   ./ out/
-          #
+
+           rsync -a \
+             --include="index.html" \
+             --include="favicon.ico" \
+             --include="css/***" \
+             --include="img/***" \
+             --exclude="*" \
+             ./ out/
+
           # If you use a custom domain:
           # [ -f CNAME ] && cp CNAME out/CNAME
 
